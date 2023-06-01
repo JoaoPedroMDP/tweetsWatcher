@@ -23,13 +23,14 @@ def get_last_tweet_id():
 
 def get_tweets(api: API, hashtags: List[str]):
     last_tweet_id = get_last_tweet_id()
-    tweets = tweepy.Cursor(api.search_tweets, hashtags, since_id=last_tweet_id).items(20)
+    # tweets = tweepy.Cursor(api.search_tweets, hashtags, since_id=last_tweet_id).items(20)
+    tweets = tweepy.Cursor(api.search_tweets, hashtags).items(20)
     tweet_list = [x for x in tweets]
 
     if len(tweet_list) == 0:
         return []
 
-    set_last_tweet_id(tweet_list[-1].id)
+    # set_last_tweet_id(tweet_list[-1].id)
     data = []
 
     for tweet in tweet_list:
