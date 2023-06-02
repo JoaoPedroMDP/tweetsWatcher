@@ -21,8 +21,7 @@ api = tweepy.API(auth)
 def get_hashtags():
     logger.debug("Tweets iniciada --------")
     try:
-        hashtags = ["#TADS", "#Feira", "#UFPR"]
-        #hashtags = ["#CriançaEsperança"]
+        hashtags = ["#TADS", "#feiraUFPR"]
         hashtag = request.args.to_dict().get("hashtag", None)
         if hashtag is not None:
             hashtags.append(hashtag)
